@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row equal">
+            <div class="col-sm-6">
+                <h3>Cost of building your site in AEM</h3>
+                <form class="form-horizontal aem">
+                    <div class="col-sm-12">
+                        <h4 style="text-align:center">Project Details</h4>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" style="text-align:left">Man hours per day</label>
+                            <div class="col-sm-6">
+                                <p>8.00 Hours</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="aem_wbpg_cnt" style="text-align:left">Number of webpages : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="aem_wbpg_cnt" name="aem_wbpg_cnt"><span>&nbsp Pages</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="aem_cmp_cnt" style="text-align:left">Number of Components : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="aem_cmp_cnt" name="aem_cmp_cnt"><span>&nbsp Components</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="aem_wk_cnt" style="text-align:left">Number Of Workflows : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="aem_wk_cnt" name="aem_wk_cnt"><span>&nbsp Workflows</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="aem_mnth_cnt" style="text-align:left">Project Completion time frame in month : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="aem_mnth_cnt" name="aem_mnth_cnt"><span>&nbsp Months</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="aem_dphr_cnt" style="text-align:left">Cost of developer per hour : </label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="aem_dphr_cnt" name="aem_dphr_cnt"><span>&nbsp $/h</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <h4 style="text-align:center">App Development</h4>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="aem_man_1" style="text-align:left">1 man day : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="aem_man_1" name="aem_man_1"><span>&nbsp % Small</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="aem_man_4" style="text-align:left">4 may day : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="aem_man_4" name="aem_man_4"><span>&nbsp % Medium</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="aem_man_7" style="text-align:left">7 may day : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="aem_man_7" name="aem_man_7"><span>&nbsp % Large</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="aem_man_15" style="text-align:left">15 man day : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="aem_man_15" name="aem_man_15"><span>&nbsp % XL</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" style="text-align:left">Total % of App Development : </label>
+                            <div class="col-sm-6">
+                                <p>100%</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" style="text-align:left">Time it takes to build web pages in AEM : </label>
+                            <div class="col-sm-6">
+                                <p>2200 <span>man days</span></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" style="text-align:left">% of the total project for App Development : </label>
+                            <div class="col-sm-6">
+                                <p>87.6%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <h4 style="text-align:center">Component Development</h4>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="aem_cmp_man_1" style="text-align:left">1 man day : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="aem_cmp_man_1" name="aem_cmp_man_1"><span>&nbsp % Small</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="aem_cmp_man_4" style="text-align:left">4 may day : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="aem_cmp_man_4" name="aem_cmp_man_4"><span>&nbsp % Medium</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="aem_cmp_man_7" style="text-align:left">7 may day : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="aem_cmp_man_7" name="aem_cmp_man_7"><span>&nbsp % Large</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="aem_cmp_man_15" style="text-align:left">15 man day : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="aem_cmp_man_15" name="aem_cmp_man_15"><span>&nbsp % XL</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" style="text-align:left">Total % of component development : </label>
+                            <div class="col-sm-6">
+                                <p>100%</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" style="text-align:left">Time it takes to build AEM components : </label>
+                            <div class="col-sm-6">
+                                <p>2200 <span>man days</span></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" style="text-align:left">% of the total project for Component Development : </label>
+                            <div class="col-sm-6">
+                                <p>87.6%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <h4 style="text-align:center">Workflow</h4>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="aem_wk_man_10" style="text-align:left">10 man day : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="aem_wk_man_10" name="aem_wk_man_10"><span>&nbsp % Small</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="aem_wk_man_20" style="text-align:left">20 may day : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="aem_wk_man_20" name="aem_wk_man_20"><span>&nbsp % Medium</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="aem_wk_man_30" style="text-align:left">30 may day : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="aem_wk_man_30" name="aem_wk_man_30"><span>&nbsp % Large</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="aem_wk_man_50" style="text-align:left">50 man day : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="aem_wk_man_50" name="aem_wk_man_50"><span>&nbsp % XL</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" style="text-align:left">Total % of Workflow development : </label>
+                            <div class="col-sm-6">
+                                <p>100%</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" style="text-align:left">Time it takes to build AEM Workflows : </label>
+                            <div class="col-sm-6">
+                                <p>2200 <span>man days</span></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" style="text-align:left">% of the total project for Workflow Development : </label>
+                            <div class="col-sm-6">
+                                <p>87.6%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <h3>Using RAPID with AEM</h3>
+                <form class="form-horizontal rpaem">
+                    <div class="col-sm-12">
+                        <h4 style="text-align:center">Project Details</h4>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" style="text-align:left">Man hours per day</label>
+                            <div class="col-sm-6">
+                                <p>8.00 Hours</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="rpaem_wbpg_cnt" style="text-align:left">Number of webpages : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="rpaem_wbpg_cnt" name="rpaem_wbpg_cnt"><span>&nbsp Pages</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="rpaem_cmp_cnt" style="text-align:left">Number of Components : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="rpaem_cmp_cnt" name="rpaem_cmp_cnt"><span>&nbsp Components</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="rpaem_wk_cnt" style="text-align:left">Number Of Workflows : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="rpaem_wk_cnt" name="rpaem_wk_cnt"><span>&nbsp Workflows</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="rpaem_mnth_cnt" style="text-align:left">Project Completion time frame in month : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="rpaem_mnth_cnt" name="rpaem_mnth_cnt"><span>&nbsp Months</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="rpaem_dphr_cnt" style="text-align:left">Cost of developer per hour : </label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="rpaem_dphr_cnt" name="rpaem_dphr_cnt"><span>&nbsp $/h</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <h4 style="text-align:center">App Development</h4>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="rpaem_man_1" style="text-align:left">1 man day : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="rpaem_man_1" name="rpaem_man_1"><span>&nbsp % Small</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="rpaem_man_4" style="text-align:left">4 may day : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="rpaem_man_4" name="rpaem_man_4"><span>&nbsp % Medium</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="rpaem_man_7" style="text-align:left">7 may day : </label>rpaem
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="rpaem_man_7" name="rpaem_man_7"><span>&nbsp % Large</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="rpaem_man_15" style="text-align:left">15 man day : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="rpaem_man_15" name="rpaem_man_15"><span>&nbsp % XL</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" style="text-align:left">Total % of App Development : </label>
+                            <div class="col-sm-6">
+                                <p>100%</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" style="text-align:left">Time it takes to build web pages in AEM : </label>
+                            <div class="col-sm-6">
+                                <p>2200 <span>man days</span></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" style="text-align:left">% of the total project for App Development : </label>
+                            <div class="col-sm-6">
+                                <p>87.6%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <h4 style="text-align:center">Component Development</h4>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="rpaem_cmp_man_1" style="text-align:left">1 man day : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="rpaem_cmp_man_1" name="rpaem_cmp_man_1"><span>&nbsp % Small</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="rpaem_cmp_man_4" style="text-align:left">4 may day : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="rpaem_cmp_man_4" name="rpaem_cmp_man_4"><span>&nbsp % Medium</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="rpaem_cmp_man_7" style="text-align:left">7 may day : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="rpaem_cmp_man_7" name="rpaem_cmp_man_7"><span>&nbsp % Large</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="rpaem_cmp_man_15" style="text-align:left">15 man day : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="rpaem_cmp_man_15" name="rpaem_cmp_man_15"><span>&nbsp % XL</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" style="text-align:left">Total % of component development : </label>
+                            <div class="col-sm-6">
+                                <p>100%</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" style="text-align:left">Time it takes to build AEM components : </label>
+                            <div class="col-sm-6">
+                                <p>2200 <span>man days</span></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" style="text-align:left">% of the total project for Component Development : </label>
+                            <div class="col-sm-6">
+                                <p>87.6%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <h4 style="text-align:center">Workflow</h4>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="rpaem_wk_man_10" style="text-align:left">10 man day : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="rpaem_wk_man_10" name="rpaem_wk_man_10"><span>&nbsp % Small</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="rpaem_wk_man_20" style="text-align:left">20 may day : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="rpaem_wk_man_20" name="rpaem_wk_man_20"><span>&nbsp % Medium</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="rpaem_wk_man_30" style="text-align:left">30 may day : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="rpaem_wk_man_30" name="rpaem_wk_man_30"><span>&nbsp % Large</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="rpaem_wk_man_50" style="text-align:left">50 man day : </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" style="display:inline-block;width:50%" id="rpaem_wk_man_50" name="rpaem_wk_man_50"><span>&nbsp % XL</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" style="text-align:left">Total % of Workflow development : </label>
+                            <div class="col-sm-6">
+                                <p>100%</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" style="text-align:left">Time it takes to build AEM Workflows : </label>
+                            <div class="col-sm-6">
+                                <p>2200 <span>man days</span></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" style="text-align:left">% of the total project for Workflow Development : </label>
+                            <div class="col-sm-6">
+                                <p>87.6%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
