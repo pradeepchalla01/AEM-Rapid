@@ -2,497 +2,412 @@
 <html lang="en">
 
 <head>
-    <title>Bootstrap Example</title>
+    <title>Calculator Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <style type="text/css">
-        body {
-            background-color: #DEDEDE;
-        }
-        
-        h3 {
-            color: #262932;
-            font-size: 31.5px;
-        }
-        
-        h4 {
-            color: #F96E5B;
-        }
-        
-        .text_color {
-            color: #212021;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="calculator.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.14/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="calculator.js"></script>
 </head>
 
-<body>
+<body ng-app="calculator">
 
-    <div class="container">
+    <div class="container" ng-controller='calculatorCtrl'>
         <div class="row equal">
             <div class="col-sm-6">
-                <h3>Cost of building your site in AEM</h3>
+                <h2>Cost of building your site in AEM</h2>
                 <form class="form-horizontal aem">
                     <div class="col-sm-12">
-                        <h4 style="text-align:center">Project Details</h4>
+                        <h3>Project Details</h3>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" style="text-align:left">Man hours per day</label>
+                            <label class="control-label col-sm-6">Man hours per day</label>
                             <div class="col-sm-6">
                                 <p>8.00 Hours</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" for="aem_wbpg_cnt" style="text-align:left">Number of webpages : </label>
+                            <label class="control-label col-sm-6" for="aem_wbpg_cnt">Number of webpages : </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="aem_wbpg_cnt" name="aem_wbpg_cnt"><span>&nbsp Pages</span>
+                                <input only-digits ng-blur="calculateValuesOnBlur()" type="text" class="form-control" id="aem_wbpg_cnt" name="aem_wbpg_cnt" ng-model="aem.aem_wbpg_cnt"><span>&nbsp Pages</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" for="aem_cmp_cnt" style="text-align:left">Number of Components : </label>
+                            <label class="control-label col-sm-6" for="aem_cmp_cnt">Number of Components : </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="aem_cmp_cnt" name="aem_cmp_cnt"><span>&nbsp Components</span>
+                                <input only-digits ng-blur="calculateValuesOnBlur()" type="text" class="form-control" id="aem_cmp_cnt" name="aem_cmp_cnt" ng-model="aem.aem_cmp_cnt"><span>&nbsp Components</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" for="aem_wk_cnt" style="text-align:left">Number Of Workflows : </label>
+                            <label class="control-label col-sm-6" for="aem_wk_cnt">Number Of Workflows : </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="aem_wk_cnt" name="aem_wk_cnt"><span>&nbsp Workflows</span>
+                                <input only-digits ng-blur="calculateValuesOnBlur()" type="text" class="form-control" id="aem_wk_cnt" name="aem_wk_cnt" ng-model="aem.aem_wk_cnt"><span>&nbsp Workflows</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" for="aem_mnth_cnt" style="text-align:left">Project Completion time frame in month : </label>
+                            <label class="control-label col-sm-6" for="aem_mnth_cnt">Project Completion time frame in month : </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="aem_mnth_cnt" name="aem_mnth_cnt"><span>&nbsp Months</span>
+                                <input only-digits ng-blur="calculateValuesOnBlur()" type="text" class="form-control" id="aem_mnth_cnt" name="aem_mnth_cnt" ng-model="aem.aem_mnth_cnt"><span>&nbsp Months</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" for="aem_dphr_cnt" style="text-align:left">Cost of developer per hour : </label>
+                            <label class="control-label col-sm-6" for="aem_dphr_cnt">Cost of developer per hour : </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="aem_dphr_cnt" name="aem_dphr_cnt"><span>&nbsp $/h</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12">
-                        <h4 style="text-align:center">App Development</h4>
-                        <div class="form-group">
-                            <label class="control-label col-sm-6" for="aem_man_1" style="text-align:left">1 man day : </label>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="aem_man_1" name="aem_man_1"><span>&nbsp % Small</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-6" for="aem_man_4" style="text-align:left">4 may day : </label>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="aem_man_4" name="aem_man_4"><span>&nbsp % Medium</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-6" for="aem_man_7" style="text-align:left">7 may day : </label>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="aem_man_7" name="aem_man_7"><span>&nbsp % Large</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-6" for="aem_man_15" style="text-align:left">15 man day : </label>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="aem_man_15" name="aem_man_15"><span>&nbsp % XL</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-6" style="text-align:left">Total % of App Development : </label>
-                            <div class="col-sm-6">
-                                <p>100%</p>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-6" style="text-align:left">Time it takes to build web pages in AEM : </label>
-                            <div class="col-sm-6">
-                                <p>2200 <span>man days</span></p>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-6" style="text-align:left">% of the total project for App Development : </label>
-                            <div class="col-sm-6">
-                                <p>87.6%</p>
+                                <input only-digits ng-blur="calculateValuesOnBlur()" type="text" class="form-control" id="aem_dphr_cnt" name="aem_dphr_cnt" ng-model="aem.aem_dphr_cnt"><span>&nbsp $/h</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-12">
-                        <h4 style="text-align:center">Component Development</h4>
+                        <h3>App Development</h3>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" for="aem_cmp_man_1" style="text-align:left">1 man day : </label>
+                            <label class="control-label col-sm-6" for="aem_man_1">1 man day : </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="aem_cmp_man_1" name="aem_cmp_man_1"><span>&nbsp % Small</span>
+                                <input only-digits ng-blur="calculateValuesOnBlur()" type="text" class="form-control" id="aem_man_1" name="aem_man_1" ng-model="aem.aem_man_1"><span>&nbsp % Small</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" for="aem_cmp_man_4" style="text-align:left">4 may day : </label>
+                            <label class="control-label col-sm-6" for="aem_man_4">4 may day : </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="aem_cmp_man_4" name="aem_cmp_man_4"><span>&nbsp % Medium</span>
+                                <input only-digits ng-blur="calculateValuesOnBlur()" type="text" class="form-control" id="aem_man_4" name="aem_man_4" ng-model="aem.aem_man_4"><span>&nbsp % Medium</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" for="aem_cmp_man_7" style="text-align:left">7 may day : </label>
+                            <label class="control-label col-sm-6" for="aem_man_7">7 may day : </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="aem_cmp_man_7" name="aem_cmp_man_7"><span>&nbsp % Large</span>
+                                <input only-digits ng-blur="calculateValuesOnBlur()" type="text" class="form-control" id="aem_man_7" name="aem_man_7" ng-model="aem.aem_man_7"><span>&nbsp % Large</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" for="aem_cmp_man_15" style="text-align:left">15 man day : </label>
+                            <label class="control-label col-sm-6" for="aem_man_15">15 man day : </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="aem_cmp_man_15" name="aem_cmp_man_15"><span>&nbsp % XL</span>
+                                <input only-digits ng-blur="calculateValuesOnBlur()" type="text" class="form-control" id="aem_man_15" name="aem_man_15" ng-model="aem.aem_man_15"><span>&nbsp % XL</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" style="text-align:left">Total % of component development : </label>
-                            <div class="col-sm-6">
-                                <p>100%</p>
-                            </div>
+                            <label class="control-label col-sm-6">Total % of App Development : </label>
+                            <div class="col-sm-6" ng-class="{'error': aem.tot_app_dev_per > 100}">{{aem.tot_app_dev_per}}%</div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" style="text-align:left">Time it takes to build AEM components : </label>
-                            <div class="col-sm-6">
-                                <p>2200 <span>man days</span></p>
-                            </div>
+                            <label class="control-label col-sm-6">Time it takes to build web pages in AEM : </label>
+                            <div class="col-sm-6">{{aem.web_build_time}} <span>man days</span></div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" style="text-align:left">% of the total project for Component Development : </label>
-                            <div class="col-sm-6">
-                                <p>87.6%</p>
-                            </div>
+                            <label class="control-label col-sm-6">% of the total project for App Development : </label>
+                            <div class="col-sm-6">{{aem.per_of_app_dev}}%</div>
                         </div>
                     </div>
                     <div class="col-sm-12">
-                        <h4 style="text-align:center">Workflow</h4>
+                        <h3>Component Development</h3>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" for="aem_wk_man_10" style="text-align:left">10 man day : </label>
+                            <label class="control-label col-sm-6" for="aem_cmp_man_1">1 man day : </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="aem_wk_man_10" name="aem_wk_man_10"><span>&nbsp % Small</span>
+                                <input only-digits ng-blur="calculateValuesOnBlur()" type="text" class="form-control" id="aem_cmp_man_1" name="aem_cmp_man_1" ng-model="aem.aem_cmp_man_1"><span>&nbsp % Small</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" for="aem_wk_man_20" style="text-align:left">20 may day : </label>
+                            <label class="control-label col-sm-6" for="aem_cmp_man_4">4 may day : </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="aem_wk_man_20" name="aem_wk_man_20"><span>&nbsp % Medium</span>
+                                <input only-digits ng-blur="calculateValuesOnBlur()" type="text" class="form-control" id="aem_cmp_man_4" name="aem_cmp_man_4" ng-model="aem.aem_cmp_man_4"><span>&nbsp % Medium</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" for="aem_wk_man_30" style="text-align:left">30 may day : </label>
+                            <label class="control-label col-sm-6" for="aem_cmp_man_7">7 may day : </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="aem_wk_man_30" name="aem_wk_man_30"><span>&nbsp % Large</span>
+                                <input only-digits ng-blur="calculateValuesOnBlur()" type="text" class="form-control" id="aem_cmp_man_7" name="aem_cmp_man_7" ng-model="aem.aem_cmp_man_7"><span>&nbsp % Large</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" for="aem_wk_man_50" style="text-align:left">50 man day : </label>
+                            <label class="control-label col-sm-6" for="aem_cmp_man_15">15 man day : </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="aem_wk_man_50" name="aem_wk_man_50"><span>&nbsp % XL</span>
+                                <input only-digits ng-blur="calculateValuesOnBlur()" type="text" class="form-control" id="aem_cmp_man_15" name="aem_cmp_man_15" ng-model="aem.aem_cmp_man_15"><span>&nbsp % XL</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" style="text-align:left">Total % of Workflow development : </label>
-                            <div class="col-sm-6">
-                                <p>100%</p>
-                            </div>
+                            <label class="control-label col-sm-6">Total % of component development : </label>
+                            <div class="col-sm-6" ng-class="{'error': aem.tot_cmp_dev_per > 100}">{{aem.tot_cmp_dev_per}}%</div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" style="text-align:left">Time it takes to build AEM Workflows : </label>
-                            <div class="col-sm-6">
-                                <p>2200 <span>man days</span></p>
-                            </div>
+                            <label class="control-label col-sm-6">Time it takes to build AEM components : </label>
+                            <div class="col-sm-6">{{aem.cmp_build_time}} <span>man days</span></div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" style="text-align:left">% of the total project for Workflow Development : </label>
-                            <div class="col-sm-6">
-                                <p>87.6%</p>
-                            </div>
+                            <label class="control-label col-sm-6">% of the total project for Component Development : </label>
+                            <div class="col-sm-6">{{aem.per_of_cmp_dev}}%</div>
                         </div>
                     </div>
                     <div class="col-sm-12">
-                        <h4 style="text-align:center">Project Summary</h4>
+                        <h3>Workflow</h3>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" style="text-align:left">Total project man days</label>
+                            <label class="control-label col-sm-6" for="aem_wk_man_10">10 man day : </label>
                             <div class="col-sm-6">
-                                <p>2478<span>&nbsp Man Days</span></p>
+                                <input only-digits ng-blur="calculateValuesOnBlur()" type="text" class="form-control" id="aem_wk_man_10" name="aem_wk_man_10" ng-model="aem.aem_wk_man_10"><span>&nbsp % Small</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" style="text-align:left">Actual time to rebuild site in hours</label>
+                            <label class="control-label col-sm-6" for="aem_wk_man_20">20 may day : </label>
                             <div class="col-sm-6">
-                                <p>19486<span>&nbsp Hours</span></p>
+                                <input only-digits ng-blur="calculateValuesOnBlur()" type="text" class="form-control" id="aem_wk_man_20" name="aem_wk_man_20" ng-model="aem.aem_wk_man_20"><span>&nbsp % Medium</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" style="text-align:left">To build the site in required time frame</label>
+                            <label class="control-label col-sm-6" for="aem_wk_man_30">30 may day : </label>
                             <div class="col-sm-6">
-                                <p>13<span>&nbsp Developers</span></p>
+                                <input only-digits ng-blur="calculateValuesOnBlur()" type="text" class="form-control" id="aem_wk_man_30" name="aem_wk_man_30" ng-model="aem.aem_wk_man_30"><span>&nbsp % Large</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" style="text-align:left">Estimated cost to rebuild website in AEM.</label>
+                            <label class="control-label col-sm-6" for="aem_wk_man_50">50 man day : </label>
                             <div class="col-sm-6">
-                                <p>$2,487,000.00</p>
+                                <input only-digits ng-blur="calculateValuesOnBlur()" type="text" class="form-control" id="aem_wk_man_50" name="aem_wk_man_50" ng-model="aem.aem_wk_man_50"><span>&nbsp % XL</span>
                             </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6">Total % of Workflow development : </label>
+                            <div class="col-sm-6" ng-class="{'error': aem.tot_wf_dev_per > 100}">{{aem.tot_wf_dev_per}}%</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6">Time it takes to build AEM Workflows : </label>
+                            <div class="col-sm-6">{{aem.wf_build_time}} <span>man days</span></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6">% of the total project for Workflow Development : </label>
+                            <div class="col-sm-6">{{aem.per_of_wf_dev}}%</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <h3>Project Summary</h3>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6">Total project man days</label>
+                            <div class="col-sm-6">{{aem.tot_proj_man}}<span>&nbsp Man Days</span></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6">Actual time to rebuild site in hours</label>
+                            <div class="col-sm-6">{{aem.rebuild_time}}<span>&nbsp Hours</span></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6">To build the site in required time frame</label>
+                            <div class="col-sm-6">{{aem.req_time}}<span>&nbsp Developers</span></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6">Estimated cost to rebuild website in AEM.</label>
+                            <div class="col-sm-6">{{aem.est_cost | currency}}</div>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="col-sm-6">
-                <h3>Using RAPID with AEM</h3>
+                <h2>Using RAPID with AEM</h2>
                 <form class="form-horizontal rpaem">
                     <div class="col-sm-12">
-                        <h4 style="text-align:center">Project Details</h4>
+                        <h3>Project Details</h3>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" style="text-align:left">Man hours per day</label>
+                            <label class="control-label col-sm-6">Man hours per day</label>
                             <div class="col-sm-6">
                                 <p>8.00 Hours</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" for="rpaem_wbpg_cnt" style="text-align:left">Number of webpages : </label>
+                            <label class="control-label col-sm-6" for="rpaem_wbpg_cnt">Number of webpages : </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="rpaem_wbpg_cnt" name="rpaem_wbpg_cnt"><span>&nbsp Pages</span>
+                                <input only-digits type="text" class="form-control" id="rpaem_wbpg_cnt" name="rpaem_wbpg_cnt" ng-model="rapid.rpaem_wbpg_cnt" readonly><span>&nbsp Pages</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" for="rpaem_cmp_cnt" style="text-align:left">Number of Components : </label>
+                            <label class="control-label col-sm-6" for="rpaem_cmp_cnt">Number of Components : </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="rpaem_cmp_cnt" name="rpaem_cmp_cnt"><span>&nbsp Components</span>
+                                <input only-digits type="text" class="form-control" id="rpaem_cmp_cnt" name="rpaem_cmp_cnt" ng-model="rapid.rpaem_cmp_cnt" readonly><span>&nbsp Components</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" for="rpaem_wk_cnt" style="text-align:left">Number Of Workflows : </label>
+                            <label class="control-label col-sm-6" for="rpaem_wk_cnt">Number Of Workflows : </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="rpaem_wk_cnt" name="rpaem_wk_cnt"><span>&nbsp Workflows</span>
+                                <input only-digits type="text" class="form-control" id="rpaem_wk_cnt" name="rpaem_wk_cnt" ng-model="rapid.rpaem_wk_cnt" readonly><span>&nbsp Workflows</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" for="rpaem_mnth_cnt" style="text-align:left">Project Completion time frame in month : </label>
+                            <label class="control-label col-sm-6" for="rpaem_mnth_cnt">Project Completion time frame in month : </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="rpaem_mnth_cnt" name="rpaem_mnth_cnt"><span>&nbsp Months</span>
+                                <input only-digits type="text" class="form-control" id="rpaem_mnth_cnt" name="rpaem_mnth_cnt" ng-model="rapid.rpaem_mnth_cnt" readonly><span>&nbsp Months</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" for="rpaem_dphr_cnt" style="text-align:left">Cost of developer per hour : </label>
+                            <label class="control-label col-sm-6" for="rpaem_dphr_cnt">Cost of developer per hour : </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="rpaem_dphr_cnt" name="rpaem_dphr_cnt"><span>&nbsp $/h</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12">
-                        <h4 style="text-align:center">App Development</h4>
-                        <div class="form-group">
-                            <label class="control-label col-sm-6" for="rpaem_man_1" style="text-align:left">1 man day : </label>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="rpaem_man_1" name="rpaem_man_1"><span>&nbsp % Small</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-6" for="rpaem_man_4" style="text-align:left">4 may day : </label>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="rpaem_man_4" name="rpaem_man_4"><span>&nbsp % Medium</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-6" for="rpaem_man_7" style="text-align:left">7 may day : </label>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="rpaem_man_7" name="rpaem_man_7"><span>&nbsp % Large</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-6" for="rpaem_man_15" style="text-align:left">15 man day : </label>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="rpaem_man_15" name="rpaem_man_15"><span>&nbsp % XL</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-6" style="text-align:left">Total % of App Development : </label>
-                            <div class="col-sm-6">
-                                <p>100%</p>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-6" style="text-align:left">Time it takes to build web pages in AEM : </label>
-                            <div class="col-sm-6">
-                                <p>2200 <span>man days</span></p>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-6" style="text-align:left">% of the total project for App Development : </label>
-                            <div class="col-sm-6">
-                                <p>87.6%</p>
+                                <input only-digits type="text" class="form-control" id="rpaem_dphr_cnt" name="rpaem_dphr_cnt" ng-model="rapid.rpaem_dphr_cnt" readonly><span>&nbsp $/h</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-12">
-                        <h4 style="text-align:center">Component Development</h4>
+                        <h3>App Development</h3>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" for="rpaem_cmp_man_1" style="text-align:left">1 man day : </label>
+                            <label class="control-label col-sm-6" for="rpaem_man_1">1 man day : </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="rpaem_cmp_man_1" name="rpaem_cmp_man_1"><span>&nbsp % Small</span>
+                                <input only-digits ng-blur="calculateValuesOnBlur()" type="text" class="form-control" id="rpaem_man_1" name="rpaem_man_1" ng-model="rapid.rpaem_man_1"><span>&nbsp % Small</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" for="rpaem_cmp_man_4" style="text-align:left">4 may day : </label>
+                            <label class="control-label col-sm-6" for="rpaem_man_4">4 may day : </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="rpaem_cmp_man_4" name="rpaem_cmp_man_4"><span>&nbsp % Medium</span>
+                                <input only-digits ng-blur="calculateValuesOnBlur()" type="text" class="form-control" id="rpaem_man_4" name="rpaem_man_4" ng-model="rapid.rpaem_man_4"><span>&nbsp % Medium</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" for="rpaem_cmp_man_7" style="text-align:left">7 may day : </label>
+                            <label class="control-label col-sm-6" for="rpaem_man_7">7 may day : </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="rpaem_cmp_man_7" name="rpaem_cmp_man_7"><span>&nbsp % Large</span>
+                                <input only-digits ng-blur="calculateValuesOnBlur()" type="text" class="form-control" id="rpaem_man_7" name="rpaem_man_7" ng-model="rapid.rpaem_man_7"><span>&nbsp % Large</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" for="rpaem_cmp_man_15" style="text-align:left">15 man day : </label>
+                            <label class="control-label col-sm-6" for="rpaem_man_15">15 man day : </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="rpaem_cmp_man_15" name="rpaem_cmp_man_15"><span>&nbsp % XL</span>
+                                <input only-digits ng-blur="calculateValuesOnBlur()" type="text" class="form-control" id="rpaem_man_15" name="rpaem_man_15" ng-model="rapid.rpaem_man_15"><span>&nbsp % XL</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" style="text-align:left">Total % of component development : </label>
-                            <div class="col-sm-6">
-                                <p>100%</p>
-                            </div>
+                            <label class="control-label col-sm-6">Total % of App Development : </label>
+                            <div class="col-sm-6" ng-class="{'error': rapid.tot_app_dev_per > 100}">{{rapid.tot_app_dev_per}}%</div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" style="text-align:left">Time it takes to build AEM components : </label>
-                            <div class="col-sm-6">
-                                <p>2200 <span>man days</span></p>
-                            </div>
+                            <label class="control-label col-sm-6">Time it takes to build web pages in AEM : </label>
+                            <div class="col-sm-6">{{rapid.web_build_time}} <span>man days</span></div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" style="text-align:left">% of the total project for Component Development : </label>
-                            <div class="col-sm-6">
-                                <p>87.6%</p>
-                            </div>
+                            <label class="control-label col-sm-6">% of the total project for App Development : </label>
+                            <div class="col-sm-6">{{rapid.per_of_app_dev}}%</div>
                         </div>
                     </div>
                     <div class="col-sm-12">
-                        <h4 style="text-align:center">Workflow</h4>
+                        <h3>Component Development</h3>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" for="rpaem_wk_man_10" style="text-align:left">10 man day : </label>
+                            <label class="control-label col-sm-6" for="rpaem_cmp_man_1">1 man day : </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="rpaem_wk_man_10" name="rpaem_wk_man_10"><span>&nbsp % Small</span>
+                                <input only-digits ng-blur="calculateValuesOnBlur()" type="text" class="form-control" id="rpaem_cmp_man_1" name="rpaem_cmp_man_1" ng-model="rapid.rpaem_cmp_man_1"><span>&nbsp % Small</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" for="rpaem_wk_man_20" style="text-align:left">20 may day : </label>
+                            <label class="control-label col-sm-6" for="rpaem_cmp_man_4">4 may day : </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="rpaem_wk_man_20" name="rpaem_wk_man_20"><span>&nbsp % Medium</span>
+                                <input only-digits ng-blur="calculateValuesOnBlur()" type="text" class="form-control" id="rpaem_cmp_man_4" name="rpaem_cmp_man_4" ng-model="rapid.rpaem_cmp_man_4"><span>&nbsp % Medium</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" for="rpaem_wk_man_30" style="text-align:left">30 may day : </label>
+                            <label class="control-label col-sm-6" for="rpaem_cmp_man_7">7 may day : </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="rpaem_wk_man_30" name="rpaem_wk_man_30"><span>&nbsp % Large</span>
+                                <input only-digits ng-blur="calculateValuesOnBlur()" type="text" class="form-control" id="rpaem_cmp_man_7" name="rpaem_cmp_man_7" ng-model="rapid.rpaem_cmp_man_7"><span>&nbsp % Large</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" for="rpaem_wk_man_50" style="text-align:left">50 man day : </label>
+                            <label class="control-label col-sm-6" for="rpaem_cmp_man_15">15 man day : </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" style="display:inline-block;width:50%" id="rpaem_wk_man_50" name="rpaem_wk_man_50"><span>&nbsp % XL</span>
+                                <input only-digits ng-blur="calculateValuesOnBlur()" type="text" class="form-control" id="rpaem_cmp_man_15" name="rpaem_cmp_man_15" ng-model="rapid.rpaem_cmp_man_15"><span>&nbsp % XL</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" style="text-align:left">Total % of Workflow development : </label>
-                            <div class="col-sm-6">
-                                <p>100%</p>
-                            </div>
+                            <label class="control-label col-sm-6">Total % of component development : </label>
+                            <div class="col-sm-6" ng-class="{'error': rapid.tot_cmp_dev_per > 100}">{{rapid.tot_cmp_dev_per}}%</div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" style="text-align:left">Time it takes to build AEM Workflows : </label>
-                            <div class="col-sm-6">
-                                <p>2200 <span>man days</span></p>
-                            </div>
+                            <label class="control-label col-sm-6">Time it takes to build AEM components : </label>
+                            <div class="col-sm-6">{{rapid.cmp_build_time}} <span>man days</span></div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" style="text-align:left">% of the total project for Workflow Development : </label>
-                            <div class="col-sm-6">
-                                <p>87.6%</p>
-                            </div>
+                            <label class="control-label col-sm-6">% of the total project for Component Development : </label>
+                            <div class="col-sm-6">{{rapid.per_of_cmp_dev}}%</div>
                         </div>
                     </div>
                     <div class="col-sm-12">
-                        <h4 style="text-align:center">Project Summary</h4>
+                        <h3>Workflow</h3>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" style="text-align:left">Total project man days</label>
+                            <label class="control-label col-sm-6" for="rpaem_wk_man_10">10 man day : </label>
                             <div class="col-sm-6">
-                                <p>2478<span>&nbsp Man Days</span></p>
+                                <input only-digits ng-blur="calculateValuesOnBlur()" type="text" class="form-control" id="rpaem_wk_man_10" name="rpaem_wk_man_10" ng-model="rapid.rpaem_wk_man_10"><span>&nbsp % Small</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" style="text-align:left">Acutal time to produce site without a CMS in hours</label>
+                            <label class="control-label col-sm-6" for="rpaem_wk_man_20">20 may day : </label>
                             <div class="col-sm-6">
-                                <p>19486<span>&nbsp Hours</span></p>
+                                <input only-digits ng-blur="calculateValuesOnBlur()" type="text" class="form-control" id="rpaem_wk_man_20" name="rpaem_wk_man_20" ng-model="rapid.rpaem_wk_man_20"><span>&nbsp % Medium</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" style="text-align:left">To build the site in required time frame</label>
+                            <label class="control-label col-sm-6" for="rpaem_wk_man_30">30 may day : </label>
                             <div class="col-sm-6">
-                                <p>6<span>&nbsp Developers</span></p>
+                                <input only-digits ng-blur="calculateValuesOnBlur()" type="text" class="form-control" id="rpaem_wk_man_30" name="rpaem_wk_man_30" ng-model="rapid.rpaem_wk_man_30"><span>&nbsp % Large</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" style="text-align:left">Estimated cost to produce website in AEM using RAPID</label>
+                            <label class="control-label col-sm-6" for="rpaem_wk_man_50">50 man day : </label>
                             <div class="col-sm-6">
-                                <p>$1,149,000.00</p>
+                                <input only-digits ng-blur="calculateValuesOnBlur()" type="text" class="form-control" id="rpaem_wk_man_50" name="rpaem_wk_man_50" ng-model="rapid.rpaem_wk_man_50"><span>&nbsp % XL</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" style="text-align:left">Cost of RAPID</label>
-                            <div class="col-sm-6">
-                                <p>$3000.00</p>
-                            </div>
+                            <label class="control-label col-sm-6">Total % of Workflow development : </label>
+                            <div class="col-sm-6" ng-class="{'error': rapid.tot_wf_dev_per > 100}">{{rapid.tot_wf_dev_per}}%</div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-6" style="text-align:left">Total cost with RAPID</label>
-                            <div class="col-sm-6">
-                                <p>$2,487,000.00</p>
-                            </div>
+                            <label class="control-label col-sm-6">Time it takes to build AEM Workflows : </label>
+                            <div class="col-sm-6">{{rapid.wf_build_time}} <span>man days</span></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6">% of the total project for Workflow Development : </label>
+                            <div class="col-sm-6">{{rapid.per_of_wf_dev}}%</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <h3>Project Summary</h3>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6">Total project man days</label>
+                            <div class="col-sm-6">{{rapid.tot_proj_man}}<span>&nbsp Man Days</span></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6">Acutal time to produce site without a CMS in hours</label>
+                            <div class="col-sm-6">{{rapid.rebuild_time}}<span>&nbsp Hours</span></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6">To build the site in required time frame</label>
+                            <div class="col-sm-6">{{rapid.req_time}}<span>&nbsp Developers</span></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6">Estimated cost to produce website in AEM using RAPID</label>
+                            <div class="col-sm-6">{{rapid.est_cost | currency}}</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6">Cost of RAPID</label>
+                            <div class="col-sm-6">{{rapid.rpaem_cost | currency}}</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6">Total cost with RAPID</label>
+                            <div class="col-sm-6">{{rapid.tot_cost | currency}}</div>
                         </div>
                     </div>
                 </form>
             </div>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-sm-6 text-right">Actual Time saved using RAPID in Man hours</label>
+                    <div class="col-sm-6 text-color">{{rapid.actual_time_saved | number}}</div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-6 text-right">Actual Time saved using RAPID in Man Days</label>
+                    <div class="col-sm-6 text-color">{{rapid.actual_days_saved | number}}</div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-6 text-right">Decrease development time %</label>
+                    <div class="col-sm-6 text-color">{{rapid.decr_dev}}%</div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-6 text-right">Development cost saving</label>
+                    <div class="col-sm-6 text-color">{{rapid.cost_save | currency}}</div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-6 text-right">ROI</label>
+                    <div class="col-sm-6 text-color">{{rapid.roi}}%</div>
+                </div>
+            </form>
         </div>
     </div>
-    <div class="container" style="text-align: center">
-        <div class="form-group">
-            <label class="control-label col-sm-6">Actual Time saved using RAPID in Man hours</label>
-            <div class="col-sm-6" style="text-align:left;">
-                <p class="text_color">1070</p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-6">Actual Time saved using RAPID in Man Days</label>
-            <div class="col-sm-6" style="text-align:left;">
-                <p class="text_color">1338</p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-6">Decrease development time %</label>
-            <div class="col-sm-6" style="text-align:left;">
-                <p class="text_color">53.80%</p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-6">Development cost saving</label>
-            <div class="col-sm-6" style="text-align:left;">
-                <p class="text_color">$1,038,000.00</p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-6">ROI</label>
-            <div class="col-sm-6" style="text-align:left;">
-                <p class="text_color">246%</p>
-            </div>
-        </div>
-
-    </div>
-
 </body>
-
 </html>

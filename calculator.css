@@ -1,0 +1,31 @@
+h2 {
+    color: #262932;
+}
+
+h3 {
+    color: #F96E5B;
+    text-align: center;
+}
+
+.text-color {
+    color: #212021;
+    font-weight: bold;
+    text-align: left;
+}
+
+label {
+    text-align: left;
+}
+
+input {
+    display: inline-block !important;
+    width: 50% !important;
+}
+
+.control-label + .col-sm-6 {
+    padding-top: 7px;
+}
+
+.error {
+    color: #e70909;
+}
