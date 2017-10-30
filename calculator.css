@@ -1,5 +1,6 @@
 h2 {
     color: #262932;
+    text-align: center;
 }
 
 h3 {
@@ -28,4 +29,9 @@ input {
 
 .error {
     color: #e70909;
+    font-weight: bold;
+}
+
+.success {
+    color: #008000;
 }
